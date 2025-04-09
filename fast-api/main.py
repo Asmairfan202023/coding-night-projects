@@ -35,22 +35,57 @@ money_quotes = [
     "A wise person should have money in their head, but not in their heart. – Jonathan Swift",
     "Money grows on the tree of persistence. – Japanese Proverb",
 ]
+business_ideas = [
+    "Eco-Friendly Products - Launch a business selling sustainable items.",
+    "Pet Services - Grooming, walking, or training pets.",
+    "Mobile Car Wash - Start a water-saving car cleaning service.",
+    "Virtual Assistant - Provide administrative support remotely.",
+    "Meal Prep Services - Sell healthy ready-to-eat meals.",
+    "Event Planning - Organize parties, weddings, and corporate events.",
+    "Digital Products - Sell eBooks, templates, or courses.",
+    "Home Cleaning Services - Offer professional cleaning locally.",
+    "Subscription Boxes - Curated packages for niche markets.",
+    "Fitness Coaching - Online or in-person personal training.",
+]
+
+motivational_quotes = [
+    "Success is not final, failure is not fatal: it is the courage to continue that counts. – Winston Churchill",
+    "Don’t watch the clock; do what it does. Keep going. – Sam Levenson",
+    "Everything you’ve ever wanted is on the other side of fear. – George Addair",
+    "Hardships often prepare ordinary people for an extraordinary destiny. – C.S. Lewis",
+    "Believe you can and you're halfway there. – Theodore Roosevelt",
+    "Start where you are. Use what you have. Do what you can. – Arthur Ashe",
+    "It always seems impossible until it’s done. – Nelson Mandela",
+    "Push yourself, because no one else is going to do it for you.",
+    "Your limitation—it’s only your imagination.",
+    "Great things never come from comfort zones.",
+]
 
 
 @app.get("/")
 def read_root():
     return {
-        "message": "Hello World, Go to /side_hustles or /money_quotes to get a random side hustle or money quote"
+        "message": "Welcome! Visit /side_hustles, /money_quotes, /business_ideas or /motivational_quotes for inspiration!"
     }
-
 
 @app.get("/side_hustles")
 def get_side_hustles():
     """Returns a random side hustle idea"""
     return {"side_hustle": random.choice(side_hustles)}
 
-
 @app.get("/money_quotes")
 def get_money_quotes():
     """Returns a random money quote"""
     return {"money_quote": random.choice(money_quotes)}
+
+@app.get("/business_ideas")
+def get_business_ideas():
+    """Returns a random business idea"""
+    return {"business_idea": random.choice(business_ideas)}
+
+@app.get("/motivational_quotes")
+def get_motivational_quotes():
+    """Returns a random motivational quote"""
+    return {"motivational_quote": random.choice(motivational_quotes)}
+
+
